@@ -1,0 +1,16 @@
+{
+  "env": {
+    "PORT": "8080"
+  },
+  "execMap": {
+    "": "node",
+    "js": "node"
+  },
+  "watch": [
+    "src/routes",
+    "src/server.js",
+    "middleware",
+    "modules"
+  ],
+  "ext": "js json"
+}

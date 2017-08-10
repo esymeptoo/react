@@ -1,3 +1,4 @@
+var babelpolyfill = require("babel-polyfill")
 var path = require('path')
 var webpack = require('webpack')
 var HtmlwebpackPlugin = require('html-webpack-plugin');
@@ -6,6 +7,7 @@ var projectRootPath = path.resolve(__dirname, '..')
 
 var config = {
   entry: [
+    'babel-polyfill',
     path.resolve(projectRootPath, 'app/app.js')
   ],
   output: {
@@ -24,7 +26,7 @@ var config = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015'],
+          presets: ['react', 'es2015', 'stage-0'],
           plugins: []
         }
       },

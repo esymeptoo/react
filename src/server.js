@@ -2,10 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 const express = require('express');
 const appConfig = require('../config/appConfig');
-
+var routerFs = require('../modules/fs');
+const logger = require('morgan')
+const log4js = require('log4js')
 
 
 const app = express()
+app.use(logger('dev'));
+app.use(require('../middleware/requestLogger'));
+app.use(require('../middleware/log'));
+app.use(require('../middleware/domain'))
 
 //webpack中间件配置，包括hotReplace
 if(!appConfig.isProduction){
@@ -22,6 +28,14 @@ if(!appConfig.isProduction){
   }))
   app.use(webpackHotMiddleware(compiler))
 }
+
+//注册路由
+const dirTree = routerFs.readDirDeepSync(path.resolve(__dirname, 'routes'));
+
+routerFs.genRouteByDirTree(dirTree).forEach((route) => {
+  console.log(route)
+  app.use(route.route, require(route.path));
+});
 
 //静态文件服务
 app.use(express.static(path.join(__dirname,'../public')))

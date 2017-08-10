@@ -1,15 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { Provider } from 'react-redux'
 import routes from './routes'
-import {Router, browserHistory, hashHistory, Route, IndexRedirect} from 'react-router'
-import First from './components/first'
-import Second from './components/second'
-import App from './containers/App/App'
+import { Router, hashHistory } from 'react-router'
+
+
+import configureStore from './store'
+
+const store = configureStore();
 
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    {routes}
-  </Router>
-  ,document.getElementById('app'))
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      {routes}
+    </Router>
+  </Provider>
+  , document.getElementById('app'))
