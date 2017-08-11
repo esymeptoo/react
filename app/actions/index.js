@@ -11,3 +11,12 @@ export const add = () => ({
     type: 'add',
 })
 
+export const getData = () => async dispatch => {
+    const res = await fetch('/api');
+    const r = await res.json();
+    await dispatch({
+        type: 'cheerioSuccess',
+        payload: r.result
+    })
+}
+

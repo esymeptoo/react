@@ -13,9 +13,6 @@ export default class App extends Component {
       headerBarShow: headerBarShow
     }
   }
-  shouldComponentUpdate() {
-    
-  }
   render() { 
     return (
       <div>

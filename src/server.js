@@ -11,7 +11,7 @@ const app = express()
 app.use(logger('dev'));
 app.use(require('../middleware/requestLogger'));
 app.use(require('../middleware/log'));
-app.use(require('../middleware/domain'))
+// app.use(require('../middleware/domain'))
 
 //webpack中间件配置，包括hotReplace
 if(!appConfig.isProduction){

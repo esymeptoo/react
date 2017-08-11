@@ -16,7 +16,7 @@ class Header extends React.Component {
     render() {
         return (
             <div className="headerContainer" style={{display: (this.props.show == false ? 'none': 'block')}}>
-                <p className="headerinner">
+                <div className="headerinner">
                     <span className="site-meta">
                         ESYMEPTOO
                     </span>
@@ -25,15 +25,14 @@ class Header extends React.Component {
                         <span className="header-btn-bar"></span>
                         <span className="header-btn-bar"></span>
                     </button>
-                    <p className="header-menu" style={{display: (this.state.menuShow == true)? 'block': 'none'}}>
+                    <div className="header-menu" style={{display: (this.state.menuShow == true)? 'block': 'none'}}>
                         <ul>
-                            <li>首页</li>
-                            <li>归档</li>
-                            <li>关于</li>
-                            <li>分类</li>
+                            <li><a href="#/first">目录</a></li>
+                            <li><a href="#/second">上传</a></li>
+                            <li>标签</li>
                         </ul>
-                    </p> 
-                </p>
+                    </div> 
+                </div>
             </div>
         )
     }

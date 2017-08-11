@@ -2,29 +2,34 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../actions'
-import Remarkable from 'remarkable'
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     }
   }
-  jumpToFirst = () => {
-    this.props.actions.testFirst(2)
+  getData = () => {
+    this.props.actions.getData();
   }
   render() {
-    var md = new Remarkable();
+    console.log(this.props.cb.data)
+    var imgC;
+    imgC = this.props.cb.data.map( item => {
+      return (
+        <img src={item} alt=""/>
+      )
+    })
     return (
       <div>
-        <span ref="me">{this.props.cb.text}</span><br/>
-        <button onClick={this.jumpToFirst.bind(this)}>+1</button>
-        {/* <div className='comment'>{md.render(this.props.children.toString())} </div> */}
+        <button onClick={this.getData.bind(this)}>爬虫</button>
+        {imgC}
       </div>
     )
   }
 }
+
 //桥接store
 const mapStateToProps = state => ({
   cb: state.First

@@ -1,13 +1,13 @@
 const initialData = {
-	 text: 1
+	 data: []
 }
 
 export default function Add(state = initialData, action){
 	switch(action.type) {
-		case 'add': 
+		case 'cheerioSuccess': 
 			return {
 				...state,
-				text: ++(state.text)
+				data: action.payload
 			}
 		default: return state;
 	}
