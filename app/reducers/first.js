@@ -8,6 +8,7 @@ export default function Add(state = initialData, action){
 			return {
 				...state,
 				data: action.payload
+				// data: Array.prototype.concat(state.data, action.payload)
 			}
 		default: return state;
 	}

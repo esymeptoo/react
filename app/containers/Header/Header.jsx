@@ -27,7 +27,7 @@ class Header extends React.Component {
                     </button>
                     <div className="header-menu" style={{display: (this.state.menuShow == true)? 'block': 'none'}}>
                         <ul>
-                            <li><a href="#/first">目录</a></li>
+                            <li><a href="#/first">爬虫</a></li>
                             <li><a href="#/second">上传</a></li>
                             <li>标签</li>
                         </ul>

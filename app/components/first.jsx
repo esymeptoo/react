@@ -10,21 +10,28 @@ class Home extends React.Component {
 
     }
   }
+  componentWillMount() {
+    this.getData()
+  }
   getData = () => {
     this.props.actions.getData();
   }
   render() {
-    console.log(this.props.cb.data)
     var imgC;
-    imgC = this.props.cb.data.map( item => {
+    imgC = this.props.cb.data.map( (item, index) => {
       return (
-        <img src={item} alt=""/>
+        <div style={{display: 'inline-block', textAlign: 'center', marginBottom: '20px'}} key={index}>
+          <img src={item.img} alt="" style={{width: '160px', height: '200px', display: 'inline-block', verticalAlign: 'top', marginLeft: '10px'}}/>
+          <p>{item.title}</p>
+        </div>
       )
     })
     return (
-      <div>
-        <button onClick={this.getData.bind(this)}>爬虫</button>
-        {imgC}
+      <div style={{width: '700px', margin: 'auto'}}>
+        <p>知乎热门电影</p>
+        <div>
+          {imgC}
+        </div>
       </div>
     )
   }
