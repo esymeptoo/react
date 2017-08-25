@@ -16,7 +16,6 @@ exports.getData = function() {
                     link: $(this).find('a').attr('href')
                 })
             })
-            console.log(filmList)
             resolve(filmList)
         })
     })

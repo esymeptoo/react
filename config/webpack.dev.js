@@ -13,7 +13,7 @@ var config = {
   output: {
     path: path.resolve(projectRootPath, 'public', 'assets'),
     filename: 'bundle.js',
-    publicPath: '/assets/'
+    publicPath: '/'
   },
   resolve: {
 		extensions: ['.js', '.jsx']
